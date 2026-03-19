@@ -159,3 +159,24 @@ sql-learning/
 └── README.md
 
 ```
+
+
+---
+
+## 📝 10 days Tracker
+
+| Day | Topic | Status |
+|----|------|--------|
+| Day 1 | SQL Fundamentals (Core Querying) | ⬜ |
+| Day 2 | SQL Aggregation Queries | ⬜ |
+| Day 3 | SQL JOINs (Top 30 Interview Questions) | ⬜ |
+| Day 4 | Advanced SQL | ⬜ |
+| Day 5 | Indexes, Views, Stored Procedures & DB Performance | ⬜ |
+| Day 6 | Top 50 Real SQL Interview Questions | ⬜ |
+| Day 7 | Database Design Case Study (Real Interview Level) | ⬜ |
+| Day 8 | LeetCode SQL Patterns + Top 50 Questions | ⬜ |
+| Day 9 | Revision & Learning resource | ⬜ |
+| Day 10 | Top Interview Question & cheatsheet (Must before interview) | ⬜ |
+
+---
+
