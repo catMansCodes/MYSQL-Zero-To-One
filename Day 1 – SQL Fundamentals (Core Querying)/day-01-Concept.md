@@ -319,16 +319,6 @@ Try solving without looking:
 * Understand query execution order (very common interview question)
 
 ---
-
-# 🔜 Next Step (Day 2)
-
-* GROUP BY
-* COUNT, SUM, AVG
-* HAVING
-* Aggregation interview questions
-
----
-
 # 📌 Tip for Interviews
 
 > Most SQL questions are just combinations of:
@@ -337,4 +327,3 @@ Try solving without looking:
 > * Sorting (ORDER BY)
 > * Limiting (LIMIT)
 
-Master these → You can solve 60–70% of SQL interview problems.
