@@ -10,19 +10,12 @@
 
 ## Why JOINs Matter
 
-```
-Real-world databases are relational
-
-Most queries involve multiple tables
-
-Core skill for:
-
-Backend Developers
-
-Data Engineers
-
-Full Stack Developers
-```
+- Real-world databases are relational
+- Most queries involve multiple tables
+- Core skill for:
+- Backend Developers
+- Data Engineers
+- Full Stack Developers
 
 ---
 
@@ -431,46 +424,32 @@ HAVING COUNT(e.id) > 2;
 ```
 
 ---
-## 🎯 Most Important Interview Patterns
+# 🎯 Most Important Interview Patterns
 ---
-### Focus heavily on these:
+## Focus heavily on these:
 
-```
-INNER JOIN vs LEFT JOIN
-
-LEFT JOIN + NULL filtering
-
-SELF JOIN
-
-Aggregation with JOIN
-
-Multi-table JOIN
-
-Finding missing records
-
-Correlated subqueries
-
-Duplicate detection
-
-```
+- INNER JOIN vs LEFT JOIN
+- LEFT JOIN + NULL filtering
+- SELF JOIN
+- Aggregation with JOIN
+- Multi-table JOIN
+- Finding missing records
+- Correlated subqueries
+- Duplicate detection
 
 ## 🧪 Practice Tips
 
 ### Practice on:
-```
-Employee-Department schema
 
-E-commerce schema
+- Employee-Department schema
+- E-commerce schema
 
-Focus on:
+### Focus on:
+- Writing queries without help
+- Explaining JOIN logic clearly
 
-Writing queries without help
+### Optimize for:
+- Readability
+- Performance
 
-Explaining JOIN logic clearly
-
-Optimize for:
-
-Readability
-
-Performance
-```
+---
