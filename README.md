@@ -1,4 +1,4 @@
-# 🚀 SQL Learning for Full-Stack Developers (MySQL + PostgreSQL)
+# 🚀 SQL Learning for Full-Stack Developers (MySQL 8.0)
 
 ## 📌 Objective
 
@@ -9,10 +9,6 @@ This repository is designed for **Java Full-Stack Developers** who want to:
 - Improve query performance understanding
 - Prepare for real-world backend & system design interviews
 
-⚠️ This is NOT for:
-- DBA-level deep tuning
-- Data analytics / BI roles
-
 ✅ This is for:
 - Backend engineers
 - Full-stack developers
@@ -20,13 +16,19 @@ This repository is designed for **Java Full-Stack Developers** who want to:
 
 ---
 
-## 🧠 What You Will Learn
+## 📝 What You Will Learn
 
-- SQL (MySQL + PostgreSQL)
-- Database design principles
-- Query optimization basics
-- Real-world backend DB usage
-- Interview-focused SQL problems
+| Day | Topic | Status |
+|----|------|--------|
+| Day 1 | SQL Fundamentals (Core Querying) | ⬜ |
+| Day 2 | SQL Aggregation Queries | ⬜ |
+| Day 3 | SQL JOINs (Top 30 Interview Questions) | ⬜ |
+| Day 4 | Advanced SQL | ⬜ |
+| Day 5 | Indexes, Views, Stored Procedures & DB Performance | ⬜ |
+| Day 6 | Top 50 Real SQL Interview Questions | ⬜ |
+| Day 7 | Database Design Case Study (Real Interview Level) | ⬜ |
+| Day 8 | LeetCode SQL Patterns + Top 50 Questions | ⬜ |
+| Day 9 | Top Interview Question & cheatsheet (Must before interview) | ⬜ |
 
 ---
 
@@ -96,43 +98,15 @@ This repository is designed for **Java Full-Stack Developers** who want to:
 
 ---
 
-### 🔹 Phase 9 — MySQL vs PostgreSQL
-- Differences
-- When to use what
-- JSON handling
-- Performance considerations
-
----
-
-### 🔹 Phase 10 — Real Interview Problems
-- Second highest salary
+### 🔹 Phase 9 — Real Interview Problems & leetcode 50 Questions
+- Second-highest salary
 - Duplicate records
 - Top N per group
 - Pagination queries
 
 ---
 
-### 🔹 Phase 11 — Backend Integration Topics
-- JDBC vs JPA
-- N+1 problem
-- Lazy vs eager loading
-- Connection pooling
-- Transactions in Spring
-
----
-
-## 📅 30-Day Learning Plan
-
-| Week | Focus |
-|------|------|
-| Week 1 | SQL Fundamentals |
-| Week 2 | JOINs + Subqueries |
-| Week 3 | Window Functions + Indexing |
-| Week 4 | Transactions + System Design |
-
----
-
-## 📁 Repository Structure
+## 📁 Repository Structure Like this
 ```
 sql-learning/
 │
@@ -159,24 +133,4 @@ sql-learning/
 └── README.md
 
 ```
-
-
----
-
-## 📝 10 days Tracker
-
-| Day | Topic | Status |
-|----|------|--------|
-| Day 1 | SQL Fundamentals (Core Querying) | ⬜ |
-| Day 2 | SQL Aggregation Queries | ⬜ |
-| Day 3 | SQL JOINs (Top 30 Interview Questions) | ⬜ |
-| Day 4 | Advanced SQL | ⬜ |
-| Day 5 | Indexes, Views, Stored Procedures & DB Performance | ⬜ |
-| Day 6 | Top 50 Real SQL Interview Questions | ⬜ |
-| Day 7 | Database Design Case Study (Real Interview Level) | ⬜ |
-| Day 8 | LeetCode SQL Patterns + Top 50 Questions | ⬜ |
-| Day 9 | Revision & Learning resource | ⬜ |
-| Day 10 | Top Interview Question & cheatsheet (Must before interview) | ⬜ |
-
----
 

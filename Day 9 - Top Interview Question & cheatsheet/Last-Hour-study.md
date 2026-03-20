@@ -1,18 +1,19 @@
-1-Hour SQL Interview Cheatsheet (High-Impact Revision)
-
+# 1-Hour SQL Interview Cheatsheet (High-Impact Revision)
+---
 This is your last-minute revision sheet before an interview.
 Focus: Speed + Recall + Accuracy
 
-⚡ 1. SQL Execution Order (🔥 Very Important)
+## ⚡ 1. SQL Execution Order (🔥 Very Important)
+```
 FROM → JOIN → WHERE → GROUP BY → HAVING → SELECT → ORDER BY → LIMIT
+```
 
-👉 Interview Trick Question:
+## 👉 Interview Trick Question:
 
-You cannot use alias in WHERE
+- You cannot use alias in WHERE
+- You can use alias in ORDER BY
 
-You can use alias in ORDER BY
-
-⚡ 2. Most Important Query Templates
+## ⚡ 2. Most Important Query Templates
 
 ✅ 1. SELECT + FILTER
 ```
