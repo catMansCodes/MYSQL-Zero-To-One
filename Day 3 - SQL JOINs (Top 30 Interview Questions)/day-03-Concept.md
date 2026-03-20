@@ -21,15 +21,14 @@
 
 ## 🧠 Types of JOINs
 
-```
-JOIN Type	Description
-INNER JOIN	Only matching records
-LEFT JOIN	All from left + matches
-RIGHT JOIN	All from right + matches
-FULL JOIN	All records from both (via UNION in MySQL)
-SELF JOIN	Table joined with itself
-CROSS JOIN	Cartesian product
-```
+| JOIN Type | Description |
+| --- | --- |
+| INNER JOIN | Only matching records |
+| LEFT JOIN | All from left + matches |
+| RIGHT JOIN | All from right + matches |
+| FULL JOIN | All records from both (via UNION in MySQL) |
+| SELF JOIN | Table joined with itself |
+| CROSS JOIN | Cartesian product |
 
 ---
 
@@ -445,10 +444,12 @@ HAVING COUNT(e.id) > 2;
 - E-commerce schema
 
 ### Focus on:
+
 - Writing queries without help
 - Explaining JOIN logic clearly
 
 ### Optimize for:
+
 - Readability
 - Performance
 
