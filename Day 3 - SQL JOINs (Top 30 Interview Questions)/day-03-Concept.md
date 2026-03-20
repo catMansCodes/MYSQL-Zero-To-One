@@ -126,7 +126,11 @@ INSERT INTO orders VALUES
 (102, 2, 500),
 (103, 1, 300);
 ```
-
+---
+### NOTE: 
+- We didn't add the foreign key or index here on our 4 tables, 
+- The Foreign key relation is not required for the join query learning or practicing.
+- For a production-ready query, it is required. 
 ---
 
 ## 🔥 Top 30 SQL JOIN Interview Questions
