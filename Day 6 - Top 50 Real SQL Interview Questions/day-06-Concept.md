@@ -493,22 +493,11 @@ FROM orders;
 
 # 💡 Pro Tips
 
-* Always clarify schema before solving
+* Always clarify the schema before solving
 * Think in **steps (CTEs)** for complex queries
 * Optimize using **indexes**
 * Use **window functions instead of subqueries** where possible
 * Explain your approach clearly (very important in interviews)
-
----
-
-# 🚀 What’s Next?
-
-👉 **Day 7 — Database Design + Case Studies**
-
-* Real-world system design problems
-* Schema design
-* Trade-offs & optimization
-* Interview case studies (Uber, Swiggy, Amazon)
 
 ---
 
