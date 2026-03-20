@@ -1,6 +1,5 @@
 ✅ **Topic-wise Important Questions (Theory + Practical)**
 
-This section is critical for interviews — it bridges concepts → real SQL problem-solving. I’ve structured it exactly how interviewers evaluate senior candidates (8–10 yrs).
 
 ## 📌 1. SQL Fundamentals (SELECT, WHERE, ORDER)
 
@@ -250,30 +249,3 @@ CREATE TABLE student_course (
     PRIMARY KEY (student_id, course_id)
 );
 ```
-
-## 🧠 How Interviewers Evaluate This Section
-
-**For Mid-Level (3–5 yrs)**
-
-- Basic queries
-- Joins
-- Aggregation
-
-**For Senior (8–10 yrs)**
-
-They expect:
-
-- Window functions
-- Query optimization
-- Schema design decisions
-- Real-world tradeoffs
-
-🔥 **High-Impact Topics (Focus More)**
-
-If you have limited time, prioritize:
-
-- JOINs (100% must)
-- Window Functions
-- Aggregations
-- Subqueries
-- Indexing basics

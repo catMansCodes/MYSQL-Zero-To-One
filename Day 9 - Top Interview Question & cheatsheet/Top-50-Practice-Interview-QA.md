@@ -2,10 +2,6 @@
 
 This is a curated list of 50 SQL questions based on:
 
-- Product companies (Amazon, Flipkart, Walmart, Swiggy)
-- LeetCode SQL 50
-- Real Java backend interviews (8–10 yrs)
-
 Structured as:
 
 - 🟢 Easy (1–15)
