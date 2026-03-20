@@ -45,6 +45,8 @@ This day focuses on:
 
 ---
 
+https://leetcode.com/studyplan/top-sql-50/
+
 ## 🟢 EASY (20 Questions)
 
 Focus: **Basic SELECT, WHERE, JOIN**
