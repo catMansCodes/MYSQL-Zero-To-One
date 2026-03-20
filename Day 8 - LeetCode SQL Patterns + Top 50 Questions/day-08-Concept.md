@@ -12,7 +12,13 @@ This day focuses on:
 
 ---
 
-# 🧠 SQL Patterns Covered
+## 📚 Index
+1. Objective
+2. SQL Patterns Covered
+3. Difficulty Breakdown
+4. Question Lists + Examples
+
+## 🧠 SQL Patterns Covered
 
 | Pattern                 | Description                  |
 | ----------------------- | ---------------------------- |
@@ -29,7 +35,7 @@ This day focuses on:
 
 ---
 
-# 📊 Difficulty Breakdown
+## 📊 Difficulty Breakdown
 
 | Level  | Count |
 | ------ | ----- |
@@ -39,7 +45,7 @@ This day focuses on:
 
 ---
 
-# 🟢 EASY (20 Questions)
+## 🟢 EASY (20 Questions)
 
 Focus: **Basic SELECT, WHERE, JOIN**
 
@@ -85,28 +91,28 @@ Filtering using WHERE
 
 Focus: Joins, Aggregation, Subqueries
 
-- Rising Temperature
-- Average Time of Process per Machine
-- Monthly Transactions
-- Immediate Food Delivery II
-- Product Sales Analysis III
-- Biggest Single Number
-- Customers Who Bought All Products
-- Employees Reporting Count
-- Primary Department
-- Triangle Judgement
-- Consecutive Numbers
-- Product Price at Given Date
-- Employees Whose Manager Left
-- Last Person to Fit in Bus
-- Count Salary Categories
-- Exchange Seats
-- Products Ordered in Period
-- Group Sold Products by Date
-- Managers with 5 Direct Reports
-- User Activity (30 Days)
-- Sales Analysis I
-- Sales Analysis II
+21. Rising Temperature
+22. Average Time of Process per Machine
+23. Monthly Transactions
+24. Immediate Food Delivery II
+25. Product Sales Analysis III
+26. Biggest Single Number
+27. Customers Who Bought All Products
+28. Employees Reporting Count
+29. Primary Department
+30. Triangle Judgement
+31. Consecutive Numbers
+32. Product Price at Given Date
+33. Employees Whose Manager Left
+34. Last Person to Fit in Bus
+35. Count Salary Categories
+36. Exchange Seats
+37. Products Ordered in Period
+38. Group Sold Products by Date
+39. Managers with 5 Direct Reports
+40. User Activity (30 Days)
+41. Sales Analysis I
+42. Sales Analysis II
 
 ✅ **Example — Rising Temperature**
 
@@ -127,14 +133,14 @@ AND w1.temperature > w2.temperature;
 
 Focus: Window Functions + Advanced Logic
 
-- Department Top Three Salaries
-- Second Highest Salary
-- Delete Duplicate Emails
-- Reformat Department Table
-- Tournament Winners
-- Game Play Analysis IV
-- Rank Scores
-- Nth Highest Salary
+43. Department Top Three Salaries
+44. Second Highest Salary
+45. Delete Duplicate Emails
+46. Reformat Department Table
+47. Tournament Winners
+48. Game Play Analysis IV
+49. Rank Scores
+50. Nth Highest Salary
 
 ✅ **Example — Department Top 3 Salaries**
 
@@ -169,25 +175,16 @@ WHERE r.rnk <= 3;
 
 These cover 80% of SQL interview patterns:
 
-Second Highest Salary
-
-Rising Temperature
-
-Consecutive Numbers
-
-Department Top 3 Salaries
-
-Customers Who Bought All Products
-
-Managers with 5 Direct Reports
-
-Exchange Seats
-
-Monthly Transactions
-
-Product Price at Given Date
-
-Last Person to Fit in Bus
+1. Second Highest Salary
+2. Rising Temperature
+3. Consecutive Numbers
+4. Department Top 3 Salaries
+5. Customers Who Bought All Products
+6. Managers with 5 Direct Reports
+7. Exchange Seats
+8. Monthly Transactions
+9. Product Price at Given Date
+10. Last Person to Fit in Bus
 
 🧩 **SQL Pattern Cheat Sheet**
 
@@ -214,28 +211,7 @@ SQL interviews are pattern-based, not syntax-based
 
 Focus on:
 
-Joins
-
-Aggregations
-
-Window functions
-
-Learn to identify patterns quickly
-
-🚀 What's Next?
-
-➡️ Day 9 — Advanced SQL Patterns
-➡️ Day 10 — Real-world System Design Queries
-
-🔗 Practice Link
-
-LeetCode Study Plan:
-https://leetcode.com/studyplan/top-sql-50/
-
-🏁 Final Advice
-
-If you can confidently solve:
-
-Top 10 questions ✅
-
-All medium-level questions ✅
+- Joins
+- Aggregations
+- Window functions
+- Learn to identify patterns quickly
