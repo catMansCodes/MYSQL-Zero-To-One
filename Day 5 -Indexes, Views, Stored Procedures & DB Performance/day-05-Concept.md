@@ -85,7 +85,7 @@ WHERE salary > 70000;
 ## 🔹 Important Notes
 
 * Too many indexes slow down INSERT/UPDATE
-* Order matters in composite index
+* Order matters in the composite index
 
 ---
 
@@ -127,9 +127,9 @@ SELECT * FROM employee_department_view;
 
 # ⚙️ 3. Stored Procedures
 
-## 🔹 What is Stored Procedure?
+## 🔹 What is a Stored Procedure?
 
-Precompiled SQL logic stored in database.
+Precompiled SQL logic stored in the database.
 
 ---
 
@@ -324,7 +324,7 @@ Procedure → manual
 
 ---
 
-## Q6: What is Execution Plan?
+## Q6: What is an Execution Plan?
 
 ```sql
 EXPLAIN SELECT ...
@@ -346,7 +346,7 @@ Adding redundancy for performance
 
 ## Q9: What is Deadlock?
 
-Two transactions waiting on each other
+Two transactions are waiting on each other
 
 ---
 
@@ -356,40 +356,5 @@ Two transactions waiting on each other
 * READ COMMITTED
 * REPEATABLE READ
 * SERIALIZABLE
-
----
-
-# 📊 Progress Tracker
-
-| Day   | Topic                         |
-| ----- | ----------------------------- |
-| Day 1 | SQL Basics                    |
-| Day 2 | Aggregations                  |
-| Day 3 | JOINs                         |
-| Day 4 | Subqueries + Window Functions |
-| Day 5 | Indexing, Views, Procedures   |
-
----
-
-# 🧠 Pro Tip (Interview Level)
-
-At **8–10 years experience**, interviewers expect:
-
-* Query optimization thinking
-* Real-world DB design decisions
-* Index strategy explanation
-* Trade-offs (Normalization vs Performance)
-
----
-
-✅ You’ve now covered **core + advanced SQL for interviews**
-
----
-
-👉 Next Step (Highly Recommended):
-
-* Day 6: **Top 50 Real SQL Interview Questions (FAANG)**
-* Day 7: **Database Design Case Studies**
-* Day 8: **LeetCode SQL Patterns**
 
 ---
