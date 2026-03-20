@@ -38,6 +38,47 @@ Master **SQL Aggregation Functions + GROUP BY + HAVING** and solve **Top 20 Inte
 
 ---
 
+```
+-- Employees Table
+CREATE TABLE employees (
+    emp_id INT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    department VARCHAR(50),
+    salary DECIMAL(10,2),
+    hire_date DATE,
+    manager_id INT
+);
+
+-- Orders Table
+CREATE TABLE orders (
+    order_id INT PRIMARY KEY,
+    customer_id INT NOT NULL,
+    amount DECIMAL(10,2),
+    order_date DATE
+);
+
+-- Insert records employee
+INSERT INTO employees (emp_id, name, department, salary, hire_date, manager_id) VALUES
+(1, 'John', 'Engineering', 90000, '2020-01-10', 101),
+(2, 'Alice', 'Engineering', 85000, '2021-03-15', 101),
+(3, 'Bob', 'HR', 60000, '2019-07-12', 102),
+(4, 'Eva', 'HR', 65000, '2022-04-21', 102),
+(5, 'David', 'Sales', 70000, '2021-05-01', 103),
+(6, 'Sam', 'Sales', 72000, '2022-08-19', 103),
+(7, 'Kevin', 'Engineering', 95000, '2018-06-25', 101),
+(8, 'Tom', 'Sales', 68000, '2020-09-14', 103);
+
+-- Insert record order
+INSERT INTO orders (order_id, customer_id, amount, order_date) VALUES
+(1, 201, 500, '2023-01-01'),
+(2, 202, 700, '2023-01-02'),
+(3, 201, 300, '2023-01-05'),
+(4, 203, 900, '2023-01-07'),
+(5, 204, 1200, '2023-01-10'),
+(6, 202, 400, '2023-01-12');
+
+```
+
 # 🔑 Core Concepts
 
 ## 1. Aggregation Functions
