@@ -363,16 +363,3 @@ Today you learned:
 
 ---
 
-# 📅 Next Step
-
-👉 **Day 3 — SQL JOINs (Most Important Topic)**
-
-Will cover:
-
-* INNER / LEFT / RIGHT / FULL JOIN
-* Real interview problems
-* 30+ questions
-
----
-
-💡 Tip: Aggregation + JOIN = 80% of SQL interview questions.
