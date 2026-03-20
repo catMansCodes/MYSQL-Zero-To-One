@@ -38,6 +38,14 @@
 
 ### Employees Table
 
+| id | name    | department_id | salary | manager_id |
+| ---: | --- | ---: | ---: | --- |
+| 1 | Alice   | 1   | 70000 | NULL |
+| 2 | Bob     | 2   | 60000 | 1 |
+| 3 | Charlie | NULL| 50000 | 1 |
+| 4 | David   | 1   | 80000 | 1 |
+| 5 | Eva     | 3   | 90000 | 2 |
+
 ```
 CREATE TABLE employees (
     id INT,
@@ -58,6 +66,12 @@ INSERT INTO employees VALUES
 
 ### Departments Table
 
+| id | department_name |
+| ---: | --- |
+| 1 | Engineering |
+| 2 | HR |
+| 3 | Finance |
+
 ```
 CREATE TABLE departments (
     id INT,
@@ -73,6 +87,12 @@ INSERT INTO departments VALUES
 
 ### Customers Table
 
+| customer_id | customer_name |
+| ---: | --- |
+| 1 | John |
+| 2 | Mary |
+| 3 | Steve |
+
 ```
 CREATE TABLE customers (
     customer_id INT,
@@ -87,6 +107,12 @@ INSERT INTO customers VALUES
 ```
 
 ### Orders Table
+
+| order_id | customer_id | amount |
+| ---: | ---: | ---: |
+| 101 | 1 | 200 |
+| 102 | 2 | 500 |
+| 103 | 1 | 300 |
 
 ```
 CREATE TABLE orders (
