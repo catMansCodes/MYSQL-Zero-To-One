@@ -2,7 +2,7 @@
 
 ## 📌 Objective
 
-This repository is designed for **Java Full-Stack Developers (6–10 years experience)** who want to:
+This repository is designed for **Java Full-Stack Developers** who want to:
 
 - Strengthen SQL fundamentals
 - Master database design concepts
