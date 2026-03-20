@@ -431,22 +431,6 @@ You should confidently explain:
 
 ---
 
-# 📅 Next — Day 8
-
-## ⚡ Query Optimization & Performance Tuning
-
-Topics:
-
-```
-EXPLAIN
-Execution Plans
-Index Strategy
-Slow Query Debugging
-Production Issues
-```
-
----
-
 💡 **Pro Tip:**
 Database design questions are **deciding rounds** in senior interviews. Practice explaining your thought process clearly.
 
