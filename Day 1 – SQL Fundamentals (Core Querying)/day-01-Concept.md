@@ -306,8 +306,8 @@ Try solving without looking:
 1. Employees from Engineering OR HR
 2. Names containing 'a'
 3. Delhi employees with salary > 70000
-4. Top 2 highest paid employees
-5. Second highest salary
+4. Top 2 highest paid employees (SELECT * FROM employees ORDER BY salary DESC LIMIT 2;)
+5. Second highest salary (SELECT DISTINCT salary FROM employees ORDER BY salary DESC LIMIT 1 OFFSET 1;)
 
 ---
 
