@@ -1020,105 +1020,8 @@ WHERE d.department_name = 'Engineering';
 
 ---
 
-### Q21 — Correlated Subquery: Employees earning above their department average
 
-**Technique:** Correlated subquery (runs once per employee row) | **Table:** `employees`
-
-**Question:** Find employees who earn more than the average salary of their own department.
-
-```sql
-SELECT e.name, e.department_id, e.salary
-FROM employees e
-WHERE e.salary > (
-    SELECT AVG(salary)
-    FROM employees
-    WHERE department_id = e.department_id   -- correlates back to outer query
-);
-```
-
-**Result:**
-
-| name  | department_id | salary |
-| ----- | ------------: | -----: |
-| David |             1 |  80000 |
-
-> Engineering avg = (70000 + 80000) / 2 = 75000. David (80000) exceeds it. Alice (70000) does not. HR avg = 60000 → Bob does not exceed it. Finance avg = 90000 → Eva does not exceed it.
-
----
-
-### Q22 — JOIN via Subquery (IN): Employees in a given department
-
-**Technique:** Subquery inside `IN` | **Tables:** `employees`, `departments`
-
-**Question:** List all employees whose department is Engineering — using a subquery instead of a direct JOIN.
-
-```sql
-SELECT name, salary
-FROM employees
-WHERE department_id IN (
-    SELECT id
-    FROM departments
-    WHERE department_name = 'Engineering'
-);
-```
-
-**Result:**
-
-| name  | salary |
-| ----- | -----: |
-| Alice |  70000 |
-| David |  80000 |
-
-> Equivalent to Q20 but written with `IN` instead of a JOIN. For small subquery result sets both perform similarly; explicit JOINs are generally preferred for readability and optimizer flexibility.
-
----
-
-### Q23 — ORDER BY + LIMIT: Employee with the highest salary
-
-**Technique:** `ORDER BY DESC` + `LIMIT` | **Table:** `employees`
-
-**Question:** Find the employee with the single highest salary.
-
-```sql
-SELECT name, salary
-FROM employees
-ORDER BY salary DESC
-LIMIT 1;
-```
-
-**Result:**
-
-| name | salary |
-| ---- | -----: |
-| Eva  |  90000 |
-
----
-
-### Q24 — Subquery: Second highest salary
-
-**Technique:** Nested `MAX` + subquery | **Table:** `employees`
-
-**Question:** Find the second highest salary in the employees table.
-
-```sql
-SELECT MAX(salary) AS second_highest
-FROM employees
-WHERE salary < (
-    SELECT MAX(salary) FROM employees
-);
-```
-
-**Result:**
-
-| second_highest |
-| -------------: |
-|          80000 |
-
-> The inner query finds the top salary (90000). The outer query then finds the highest salary below that (80000 = David). For Nth highest in general, use `DENSE_RANK()` (covered in Day 4).
-
----
-
-### Q25 — LEFT JOIN + multiple aggregates: Department summary
+### Q21 — LEFT JOIN + multiple aggregates: Department summary
 
 **JOIN Type:** `LEFT JOIN` | **Tables:** `departments ↔ employees`
 
@@ -1145,7 +1048,7 @@ GROUP BY d.department_name;
 
 ---
 
-### Q26 — SELF JOIN: Pairs of employees in the same department
+### Q22 — SELF JOIN: Pairs of employees in the same department
 
 **JOIN Type:** `SELF JOIN` (INNER JOIN) | **Table:** `employees` joined with itself
 
@@ -1171,7 +1074,7 @@ AND e1.id < e2.id;      -- use < instead of <> to avoid (A,B) and (B,A) duplicat
 
 ---
 
-### Q27 — JOIN + SUM + LIMIT: Department with the highest total salary bill
+### Q23 — JOIN + SUM + LIMIT: Department with the highest total salary bill
 
 **JOIN Type:** `INNER JOIN` | **Tables:** `employees ↔ departments`
 
@@ -1198,30 +1101,8 @@ LIMIT 1;
 
 ---
 
-### Q28 — ORDER BY + LIMIT: Top 3 highest-paid employees
 
-**Technique:** `ORDER BY DESC` + `LIMIT` | **Table:** `employees`
-
-**Question:** List the top 3 highest-paid employees.
-
-```sql
-SELECT name, salary
-FROM employees
-ORDER BY salary DESC
-LIMIT 3;
-```
-
-**Result:**
-
-| name  | salary |
-| ----- | -----: |
-| Eva   |  90000 |
-| David |  80000 |
-| Alice |  70000 |
-
----
-
-### Q29 — Anti-JOIN across unrelated tables: Employees with no matching orders
+### Q24 — Anti-JOIN across unrelated tables: Employees with no matching orders
 
 **JOIN Type:** `LEFT JOIN` + `IS NULL` filter | **Tables:** `employees ↔ orders`
 
@@ -1247,7 +1128,7 @@ WHERE o.order_id IS NULL;
 
 ---
 
-### Q30 — JOIN + HAVING: Departments with more than N employees
+### Q25 — JOIN + HAVING: Departments with more than N employees
 
 **JOIN Type:** `INNER JOIN` | **Tables:** `departments ↔ employees`
 
