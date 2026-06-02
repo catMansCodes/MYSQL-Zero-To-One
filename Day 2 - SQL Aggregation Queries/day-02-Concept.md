@@ -375,53 +375,98 @@ CREATE INDEX idx_customer ON orders(customer_id);
 
 # 🧪 Practice Questions (Must Do)
 
-1. Highest Revenue Customer
+---
+
+### 1. Highest Revenue Customer
+
+```sql
 SELECT customer_id,
        SUM(amount) AS total_revenue
 FROM orders
 GROUP BY customer_id
 ORDER BY total_revenue DESC
 LIMIT 1;
-Output
-customer_id	total_revenue
-204	1200
-2. Average Order Value
+```
+
+**Output**
+
+| customer_id | total_revenue |
+| ----------- | ------------- |
+| 204         | 1200          |
+
+---
+
+### 2. Average Order Value
+
+```sql
 SELECT AVG(amount) AS avg_order_value
 FROM orders;
-Output
-666.67
-3. Team Size Per Manager
+```
+
+**Output**
+
+| avg_order_value |
+| --------------- |
+| 666.67          |
+
+---
+
+### 3. Team Size Per Manager
+
+```sql
 SELECT manager_id,
        COUNT(*) AS team_size
 FROM employees
 GROUP BY manager_id;
-Output
-manager_id	team_size
-101	3
-102	2
-103	3
-4. Sales Per Day
+```
+
+**Output**
+
+| manager_id | team_size |
+| ---------- | --------- |
+| 101        | 3         |
+| 102        | 2         |
+| 103        | 3         |
+
+---
+
+### 4. Sales Per Day
+
+```sql
 SELECT order_date,
        SUM(amount) AS total_sales
 FROM orders
 GROUP BY order_date
 ORDER BY order_date;
-Output
-order_date	total_sales
-2023-01-01	500
-2023-01-02	700
-2023-01-05	300
-2023-01-07	900
-2023-01-10	1200
-2023-01-12	400
-5. Departments Above Company Average Salary
-Company Average Salary
+```
+
+**Output**
+
+| order_date | total_sales |
+| ---------- | ----------- |
+| 2023-01-01 | 500         |
+| 2023-01-02 | 700         |
+| 2023-01-05 | 300         |
+| 2023-01-07 | 900         |
+| 2023-01-10 | 1200        |
+| 2023-01-12 | 400         |
+
+---
+
+### 5. Departments Above Company Average Salary
+
+**Company Average Salary**
+
+```sql
 SELECT AVG(salary)
 FROM employees;
+```
 
-Average = 75625
+> Average = 75625
 
-Departments Above Average
+**Departments Above Average**
+
+```sql
 SELECT department,
        AVG(salary) AS dept_avg_salary
 FROM employees
@@ -431,11 +476,21 @@ HAVING AVG(salary) >
     SELECT AVG(salary)
     FROM employees
 );
-Output
-department	dept_avg_salary
-Engineering	90000
-6. Top 3 Highest Paid Employees Per Department
-Window Function Solution (Interview Favorite)
+```
+
+**Output**
+
+| department  | dept_avg_salary |
+| ----------- | --------------- |
+| Engineering | 90000           |
+
+---
+
+### 6. Top 3 Highest Paid Employees Per Department
+
+> Window Function Solution (Interview Favorite)
+
+```sql
 SELECT *
 FROM
 (
@@ -451,51 +506,76 @@ FROM
     FROM employees
 ) t
 WHERE rnk <= 3;
-Output
+```
 
-Engineering
+**Output**
 
-Name	Salary
-Kevin	95000
-John	90000
-Alice	85000
+**Engineering**
 
-HR
+| Name  | Salary |
+| ----- | ------ |
+| Kevin | 95000  |
+| John  | 90000  |
+| Alice | 85000  |
 
-Name	Salary
-Eva	65000
-Bob	60000
+**HR**
 
-Sales
+| Name | Salary |
+| ---- | ------ |
+| Eva  | 65000  |
+| Bob  | 60000  |
 
-Name	Salary
-Sam	72000
-David	70000
-Tom	68000
-7. Department With Lowest Average Salary
+**Sales**
+
+| Name  | Salary |
+| ----- | ------ |
+| Sam   | 72000  |
+| David | 70000  |
+| Tom   | 68000  |
+
+---
+
+### 7. Department With Lowest Average Salary
+
+```sql
 SELECT department,
        AVG(salary) AS avg_salary
 FROM employees
 GROUP BY department
 ORDER BY avg_salary
 LIMIT 1;
-Output
-department	avg_salary
-HR	62500
-8. Customer With Maximum Orders
+```
+
+**Output**
+
+| department | avg_salary |
+| ---------- | ---------- |
+| HR         | 62500      |
+
+---
+
+### 8. Customer With Maximum Orders
+
+```sql
 SELECT customer_id,
        COUNT(*) AS total_orders
 FROM orders
 GROUP BY customer_id
 ORDER BY total_orders DESC
 LIMIT 1;
-Output
-customer_id	total_orders
-201	2
+```
 
-Customer 202 also has 2 orders, so there is a tie.
+**Output**
 
-Tie-Safe Solution
+| customer_id | total_orders |
+| ----------- | ------------ |
+| 201         | 2            |
+
+> Customer 202 also has 2 orders, so there is a tie.
+
+**Tie-Safe Solution**
+
+```sql
 SELECT customer_id,
        COUNT(*) AS total_orders
 FROM orders
@@ -510,31 +590,51 @@ HAVING COUNT(*) =
         GROUP BY customer_id
     ) t
 );
-9. Date With Highest Revenue
+```
+
+---
+
+### 9. Date With Highest Revenue
+
+```sql
 SELECT order_date,
        SUM(amount) AS revenue
 FROM orders
 GROUP BY order_date
 ORDER BY revenue DESC
 LIMIT 1;
-Output
-order_date	revenue
-2023-01-10	1200
-10. Employees Hired Per Month
-MySQL
+```
+
+**Output**
+
+| order_date | revenue |
+| ---------- | ------- |
+| 2023-01-10 | 1200    |
+
+---
+
+### 10. Employees Hired Per Month
+
+> MySQL
+
+```sql
 SELECT DATE_FORMAT(hire_date,'%Y-%m') AS month,
        COUNT(*) AS employees_hired
 FROM employees
 GROUP BY DATE_FORMAT(hire_date,'%Y-%m')
 ORDER BY month;
-Output
-month	employees_hired
-2018-06	1
-2019-07	1
-2020-01	1
-2020-09	1
-2021-03	1
-2021-05	1
-2022-04	1
-2022-08	1
+```
+
+**Output**
+
+| month   | employees_hired |
+| ------- | --------------- |
+| 2018-06 | 1               |
+| 2019-07 | 1               |
+| 2020-01 | 1               |
+| 2020-09 | 1               |
+| 2021-03 | 1               |
+| 2021-05 | 1               |
+| 2022-04 | 1               |
+| 2022-08 | 1               |
 
