@@ -478,19 +478,6 @@ FROM orders;
 
 ---
 
-# 🧠 Interview Focus (Critical)
-
-| Area             | Importance |
-| ---------------- | ---------- |
-| JOINs            | ⭐⭐⭐⭐⭐      |
-| Window Functions | ⭐⭐⭐⭐⭐      |
-| Aggregations     | ⭐⭐⭐⭐       |
-| Subqueries       | ⭐⭐⭐⭐       |
-| CTEs             | ⭐⭐⭐        |
-| Indexing         | ⭐⭐⭐        |
-
----
-
 # 💡 Pro Tips
 
 * Always clarify the schema before solving
@@ -498,15 +485,5 @@ FROM orders;
 * Optimize using **indexes**
 * Use **window functions instead of subqueries** where possible
 * Explain your approach clearly (very important in interviews)
-
----
-
-# ✅ Outcome of Day 6
-
-After completing this:
-
-* You can solve **80% of SQL interview questions**
-* You understand **real business problems**
-* You are ready for **FAANG-level SQL rounds**
 
 ---
