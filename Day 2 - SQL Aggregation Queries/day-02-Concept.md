@@ -371,36 +371,170 @@ For performance:
 CREATE INDEX idx_customer ON orders(customer_id);
 ```
 
----
 
-# 💼 Real Interview Questions (Asked in Product Companies)
-
-1. Highest revenue customer
-2. Avg order value
-3. Team size per manager
-4. Sales per day
-5. Departments above company avg
-
----
 
 # 🧪 Practice Questions (Must Do)
 
-1. Top 3 highest paid employees per department
-2. Department with lowest avg salary
-3. Customer with maximum orders
-4. Date with highest revenue
-5. Employees hired per month
+1. Highest Revenue Customer
+SELECT customer_id,
+       SUM(amount) AS total_revenue
+FROM orders
+GROUP BY customer_id
+ORDER BY total_revenue DESC
+LIMIT 1;
+Output
+customer_id	total_revenue
+204	1200
+2. Average Order Value
+SELECT AVG(amount) AS avg_order_value
+FROM orders;
+Output
+666.67
+3. Team Size Per Manager
+SELECT manager_id,
+       COUNT(*) AS team_size
+FROM employees
+GROUP BY manager_id;
+Output
+manager_id	team_size
+101	3
+102	2
+103	3
+4. Sales Per Day
+SELECT order_date,
+       SUM(amount) AS total_sales
+FROM orders
+GROUP BY order_date
+ORDER BY order_date;
+Output
+order_date	total_sales
+2023-01-01	500
+2023-01-02	700
+2023-01-05	300
+2023-01-07	900
+2023-01-10	1200
+2023-01-12	400
+5. Departments Above Company Average Salary
+Company Average Salary
+SELECT AVG(salary)
+FROM employees;
 
----
+Average = 75625
 
-# 🚀 Summary
+Departments Above Average
+SELECT department,
+       AVG(salary) AS dept_avg_salary
+FROM employees
+GROUP BY department
+HAVING AVG(salary) >
+(
+    SELECT AVG(salary)
+    FROM employees
+);
+Output
+department	dept_avg_salary
+Engineering	90000
+6. Top 3 Highest Paid Employees Per Department
+Window Function Solution (Interview Favorite)
+SELECT *
+FROM
+(
+    SELECT emp_id,
+           name,
+           department,
+           salary,
+           DENSE_RANK() OVER
+           (
+               PARTITION BY department
+               ORDER BY salary DESC
+           ) AS rnk
+    FROM employees
+) t
+WHERE rnk <= 3;
+Output
 
-Today you learned:
+Engineering
 
-* Aggregation functions
-* GROUP BY & HAVING
-* Real-world analytics queries
-* Interview-level SQL patterns
+Name	Salary
+Kevin	95000
+John	90000
+Alice	85000
 
----
+HR
+
+Name	Salary
+Eva	65000
+Bob	60000
+
+Sales
+
+Name	Salary
+Sam	72000
+David	70000
+Tom	68000
+7. Department With Lowest Average Salary
+SELECT department,
+       AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department
+ORDER BY avg_salary
+LIMIT 1;
+Output
+department	avg_salary
+HR	62500
+8. Customer With Maximum Orders
+SELECT customer_id,
+       COUNT(*) AS total_orders
+FROM orders
+GROUP BY customer_id
+ORDER BY total_orders DESC
+LIMIT 1;
+Output
+customer_id	total_orders
+201	2
+
+Customer 202 also has 2 orders, so there is a tie.
+
+Tie-Safe Solution
+SELECT customer_id,
+       COUNT(*) AS total_orders
+FROM orders
+GROUP BY customer_id
+HAVING COUNT(*) =
+(
+    SELECT MAX(order_count)
+    FROM
+    (
+        SELECT COUNT(*) AS order_count
+        FROM orders
+        GROUP BY customer_id
+    ) t
+);
+9. Date With Highest Revenue
+SELECT order_date,
+       SUM(amount) AS revenue
+FROM orders
+GROUP BY order_date
+ORDER BY revenue DESC
+LIMIT 1;
+Output
+order_date	revenue
+2023-01-10	1200
+10. Employees Hired Per Month
+MySQL
+SELECT DATE_FORMAT(hire_date,'%Y-%m') AS month,
+       COUNT(*) AS employees_hired
+FROM employees
+GROUP BY DATE_FORMAT(hire_date,'%Y-%m')
+ORDER BY month;
+Output
+month	employees_hired
+2018-06	1
+2019-07	1
+2020-01	1
+2020-09	1
+2021-03	1
+2021-05	1
+2022-04	1
+2022-08	1
 
