@@ -1283,7 +1283,7 @@ HAVING COUNT(e.id) > 2;
 
 ---
 
-**Q: What is the difference between INNER JOIN and LEFT JOIN?**
+**Q:1 What is the difference between INNER JOIN and LEFT JOIN?**
 
 **A:**
 
@@ -1308,7 +1308,7 @@ LEFT JOIN departments d ON e.department_id = d.id;
 
 ---
 
-**Q: When would you choose LEFT JOIN over INNER JOIN in production?**
+**Q:2 When would you choose LEFT JOIN over INNER JOIN in production?**
 
 **A:** Use LEFT JOIN when:
 - You need a **complete list** of one entity (e.g., all customers) regardless of whether related data exists (e.g., orders).
@@ -1317,7 +1317,7 @@ LEFT JOIN departments d ON e.department_id = d.id;
 
 ---
 
-**Q: Does the order of tables matter in INNER JOIN?**
+**Q:3 Does the order of tables matter in INNER JOIN?**
 
 **A:** No — `A INNER JOIN B` and `B INNER JOIN A` produce the same rows (the result set is symmetric). Column order in `SELECT` may differ, but the row set is identical.
 
@@ -1329,7 +1329,7 @@ For `LEFT JOIN` and `RIGHT JOIN`, order **does** matter — the table on the lef
 
 ---
 
-**Q: What is an anti-join and how do you write one in MySQL?**
+**Q:4 What is an anti-join and how do you write one in MySQL?**
 
 **A:** An anti-join returns rows from one table that have **no matching row** in another table. MySQL has no `ANTI JOIN` keyword, so you emulate it with LEFT JOIN + `IS NULL`:
 
@@ -1345,7 +1345,7 @@ The key insight: after a LEFT JOIN, any column from the **right table's primary 
 
 ---
 
-**Q: Why must you filter on a NOT NULL column (like a primary key) and not just any column?**
+**Q:5 Why must you filter on a NOT NULL column (like a primary key) and not just any column?**
 
 **A:** If you filter on a nullable column, you can't tell whether `NULL` means "no match" or "the column genuinely stores NULL in the database". Always filter on a column that is defined `NOT NULL` in the right table — a primary key is the safest choice.
 
@@ -1359,7 +1359,7 @@ WHERE d.id IS NULL
 
 ---
 
-**Q: What is the difference between NOT IN and LEFT JOIN + IS NULL for finding missing records?**
+**Q:6 What is the difference between NOT IN and LEFT JOIN + IS NULL for finding missing records?**
 
 **A:**
 
@@ -1386,7 +1386,7 @@ WHERE d.id IS NULL;
 
 ---
 
-**Q: What is a SELF JOIN and when do you use it?**
+**Q:7 What is a SELF JOIN and when do you use it?**
 
 **A:** A SELF JOIN joins a table to itself using two different aliases. The table is physically the same, but the aliases let the query treat it as two separate virtual tables.
 
@@ -1404,7 +1404,7 @@ LEFT JOIN employees m ON e.manager_id = m.id;
 
 ---
 
-**Q: What happens if you forget to add the `id <> id` or `id < id` condition in a SELF JOIN?**
+**Q:8 What happens if you forget to add the `id <> id` or `id < id` condition in a SELF JOIN?**
 
 **A:**
 - Without any guard: every employee matches themselves, producing duplicate/redundant rows (Alice paired with Alice, Bob paired with Bob, etc.).
@@ -1417,7 +1417,7 @@ LEFT JOIN employees m ON e.manager_id = m.id;
 
 ---
 
-**Q: Why must you use LEFT JOIN instead of INNER JOIN when counting rows per group (including groups with zero)?**
+**Q:9 Why must you use LEFT JOIN instead of INNER JOIN when counting rows per group (including groups with zero)?**
 
 **A:** INNER JOIN drops rows with no match, so groups with zero related records disappear from the result. LEFT JOIN preserves them, and `COUNT(right_table.pk)` returns `0` for those groups because `COUNT` ignores `NULL` values.
 
@@ -1437,7 +1437,7 @@ GROUP BY d.department_name;
 
 ---
 
-**Q: What is the difference between WHERE and HAVING?**
+**Q:10 What is the difference between WHERE and HAVING?**
 
 **A:**
 
@@ -1463,7 +1463,7 @@ HAVING AVG(salary) > 70000;   -- filters entire groups after aggregation
 
 ---
 
-**Q: Can you use both WHERE and HAVING in the same query?**
+**Q:11 Can you use both WHERE and HAVING in the same query?**
 
 **A:** Yes — and it is common. `WHERE` filters rows before grouping; `HAVING` filters the resulting groups.
 
@@ -1482,7 +1482,7 @@ HAVING COUNT(e.id) >= 1;         -- only show departments with at least 1 such e
 
 ---
 
-**Q: How do you join more than two tables?**
+**Q:12 How do you join more than two tables?**
 
 **A:** Chain JOIN clauses — each one adds another table to the result set. The optimizer decides the physical join order.
 
@@ -1497,7 +1497,7 @@ Each `JOIN` line references one new table. You can mix `INNER JOIN`, `LEFT JOIN`
 
 ---
 
-**Q: Does the order of JOINs in a multi-table query affect the result?**
+**Q:13 Does the order of JOINs in a multi-table query affect the result?**
 
 **A:** For INNER JOINs — **no**, the result is mathematically the same regardless of join order. The MySQL optimizer may reorder them internally for performance.
 
@@ -1505,7 +1505,7 @@ For OUTER JOINs — **yes**, order can matter because which table is the "preser
 
 ---
 
-**Q: What is a JOIN condition vs a filter condition, and why does it matter for OUTER JOINs?**
+**Q:14 What is a JOIN condition vs a filter condition, and why does it matter for OUTER JOINs?**
 
 **A:**
 - **JOIN condition (`ON`)** — determines which rows are matched between tables. Evaluated before the outer join produces `NULL`-padded rows.
@@ -1533,7 +1533,7 @@ WHERE e.salary > 70000;          -- WHERE: removes NULL rows → kills outer joi
 
 ---
 
-**Q: What are the three ways to find rows in table A that have no match in table B?**
+**Q:15 What are the three ways to find rows in table A that have no match in table B?**
 
 **A:**
 
@@ -1564,7 +1564,7 @@ WHERE department_id NOT IN (
 
 ---
 
-**Q: Why does `NOT IN` return no rows when the subquery contains a NULL?**
+**Q:16 Why does `NOT IN` return no rows when the subquery contains a NULL?**
 
 **A:** SQL uses three-valued logic (TRUE / FALSE / UNKNOWN). Any comparison with `NULL` yields `UNKNOWN`, and `WHERE UNKNOWN` is treated as false — so the row is excluded.
 
@@ -1584,7 +1584,7 @@ This is why `NOT IN` silently returns zero rows when the subquery has any `NULL`
 
 ---
 
-**Q: What is a correlated subquery?**
+**Q:17 What is a correlated subquery?**
 
 **A:** A subquery that **references a column from the outer query**. It is re-executed once for every row the outer query processes, making it logically equivalent to a nested loop.
 
@@ -1601,7 +1601,7 @@ WHERE e.salary > (
 
 ---
 
-**Q: What is the performance concern with correlated subqueries, and how can you rewrite them?**
+**Q:18 What is the performance concern with correlated subqueries, and how can you rewrite them?**
 
 **A:** Since the subquery runs once per outer row, it is O(N × M) in the worst case. For large tables this is slow. Rewrite using a JOIN + derived table or CTE:
 
@@ -1627,7 +1627,7 @@ WHERE e.salary > da.avg_sal;
 
 ---
 
-**Q: What is the difference between EXISTS and IN?**
+**Q:19 What is the difference between EXISTS and IN?**
 
 **A:**
 
@@ -1656,7 +1656,7 @@ WHERE EXISTS (
 
 ---
 
-**Q: How do you find duplicate rows in a table?**
+**Q:20 How do you find duplicate rows in a table?**
 
 **A:** Use `GROUP BY` on the columns that define a "duplicate", then `HAVING COUNT(*) > 1`:
 
@@ -1676,7 +1676,7 @@ HAVING COUNT(*) > 1;
 
 ---
 
-**Q: How do you find duplicate rows using a SELF JOIN?**
+**Q:21 How do you find duplicate rows using a SELF JOIN?**
 
 **A:** Join the table with itself on the duplicate-defining columns, then exclude self-pairing:
 
@@ -1693,7 +1693,7 @@ This gives you the actual IDs of duplicate pairs, which is useful when you need 
 
 ---
 
-**Q: How do you delete duplicate rows but keep one copy?**
+**Q:22 How do you delete duplicate rows but keep one copy?**
 
 **A:** Use `DELETE` with a self-join or a subquery targeting the higher (or lower) `id`:
 
@@ -1712,7 +1712,7 @@ AND e1.id > e2.id;         -- delete e1 when a "better" copy (lower id) exists
 
 ---
 
-**Q: What is the difference between `UNION` and `UNION ALL`?**
+**Q:23 What is the difference between `UNION` and `UNION ALL`?**
 
 **A:**
 - `UNION` — combines result sets and **removes duplicate rows** (runs a distinct operation, which is slower).
@@ -1722,7 +1722,7 @@ Use `UNION ALL` when you know rows are already distinct or when duplicates are i
 
 ---
 
-**Q: What is a JOIN vs a subquery — when do you use each?**
+**Q:24 What is a JOIN vs a subquery — when do you use each?**
 
 **A:**
 
@@ -1738,7 +1738,7 @@ As a rule: JOINs are generally more readable and the optimizer handles them well
 
 ---
 
-**Q: What is a derived table (inline view)?**
+**Q:25 What is a derived table (inline view)?**
 
 **A:** A subquery in the `FROM` clause — treated as a temporary table for the duration of the query. Useful for pre-aggregating data before joining.
 
@@ -1755,7 +1755,7 @@ ON e.department_id = dept_stats.department_id;
 
 ---
 
-**Q: What is a CTE (`WITH` clause) and how is it different from a derived table?**
+**Q:26 What is a CTE (`WITH` clause) and how is it different from a derived table?**
 
 **A:** A CTE (Common Table Expression) defines a named temporary result set at the top of the query. It is equivalent to a derived table but:
 - Can be referenced **multiple times** in the same query.
@@ -1776,7 +1776,7 @@ WHERE e.salary > da.avg_sal;
 
 ---
 
-**Q: What is a Cartesian product and when does it accidentally happen?**
+**Q:27 What is a Cartesian product and when does it accidentally happen?**
 
 **A:** A Cartesian product pairs every row from one table with every row from another — producing `N × M` rows. It happens intentionally with `CROSS JOIN`, but accidentally when you:
 - Forget the `ON` condition in a JOIN.
@@ -1793,7 +1793,7 @@ JOIN departments d ON e.department_id = d.id;
 
 ---
 
-**Q: What is the execution order of a SQL SELECT statement?**
+**Q:28 What is the execution order of a SQL SELECT statement?**
 
 **A:** SQL is declarative — you write `SELECT` first, but the engine evaluates clauses in this logical order:
 
