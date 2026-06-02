@@ -1,22 +1,6 @@
 # 📅 Day 8 — LeetCode SQL 50 (Patterns + Interview Preparation)
 
-## 🎯 Objective
-
-Master the **Top 50 SQL questions from LeetCode** and understand the **core SQL patterns** used in real-world interviews (Amazon, Google, Flipkart, etc.).
-
-This day focuses on:
-
-- Pattern recognition (most important for interviews)
-- Writing optimized SQL queries
-- Solving problems using real-world datasets
-
----
-
-## 📚 Index
-1. Objective
-2. SQL Patterns Covered
-3. Difficulty Breakdown
-4. Question Lists + Examples
+https://leetcode.com/studyplan/top-sql-50/ 
 
 ## 🧠 SQL Patterns Covered
 
@@ -43,11 +27,6 @@ This day focuses on:
 | Medium | 22    |
 | Hard   | 8     |
 
----
-
-https://leetcode.com/studyplan/top-sql-50/
-
----
 
 🟢 EASY (20 Questions)
 
@@ -120,18 +99,4 @@ Focus: Window Functions + Advanced Logic
 
 ---
 
-## ⭐ Top 10 Must-Do Interview Questions
-
-These cover 80% of SQL interview patterns:
-
-1. Second Highest Salary
-2. Rising Temperature
-3. Consecutive Numbers
-4. Department Top 3 Salaries
-5. Customers Who Bought All Products
-6. Managers with 5 Direct Reports
-7. Exchange Seats
-8. Monthly Transactions
-9. Product Price at Given Date
-10. Last Person to Fit in Bus
 
