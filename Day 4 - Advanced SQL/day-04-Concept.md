@@ -816,7 +816,7 @@ ORDER BY department, salary DESC;
 
 ---
 
-### T1 — What is the difference between a subquery and a JOIN?
+## Q21 — What is the difference between a subquery and a JOIN?
 
 **A:**
 
@@ -845,7 +845,7 @@ ON e.salary > avg_table.avg_sal;
 
 ---
 
-### T2 — What is a correlated subquery and what is its performance concern?
+## Q22 — What is a correlated subquery and what is its performance concern?
 
 **A:** A correlated subquery references a column from the outer query — it is logically re-executed for every row the outer query processes.
 
@@ -876,7 +876,7 @@ WHERE e.salary > d.avg_sal;
 
 ---
 
-### T3 — What is the difference between `EXISTS` and `IN`?
+## Q23 — What is the difference between `EXISTS` and `IN`?
 
 **A:**
 
@@ -903,7 +903,7 @@ WHERE EXISTS (
 
 ---
 
-### T4 — Window functions vs GROUP BY: What is the difference?
+## Q24 — Window functions vs GROUP BY: What is the difference?
 
 **A:**
 
@@ -927,7 +927,7 @@ FROM employees;
 
 ---
 
-### T5 — Explain PARTITION BY vs ORDER BY inside a window function.
+## Q25 — Explain PARTITION BY vs ORDER BY inside a window function.
 
 **A:**
 - **`PARTITION BY`** — divides the result set into independent groups. The window function resets at the start of each partition. Think of it as the window version of `GROUP BY`.
@@ -947,7 +947,7 @@ FROM employees;
 
 ---
 
-### T6 — What is the difference between RANK, DENSE_RANK, and ROW_NUMBER?
+## Q26 — What is the difference between RANK, DENSE_RANK, and ROW_NUMBER?
 
 **A:**
 
@@ -964,7 +964,7 @@ FROM employees;
 
 ---
 
-### T7 — Why can't you use a window function result in the WHERE clause of the same query?
+## Q27 — Why can't you use a window function result in the WHERE clause of the same query?
 
 **A:** SQL processes clauses in this logical order:
 
@@ -989,7 +989,7 @@ WHERE rn = 1;
 
 ---
 
-### T8 — When would you use LAG/LEAD vs a self-join?
+## Q28 — When would you use LAG/LEAD vs a self-join?
 
 **A:**
 - **`LAG()` / `LEAD()`** — cleaner, more readable, better performance. Use when you need the previous or next row based on a defined ordering.
@@ -1009,7 +1009,7 @@ GROUP BY e1.name, e1.salary;
 
 ---
 
-### T9 — What is a CTE and when do you use it over a subquery?
+## Q29 — What is a CTE and when do you use it over a subquery?
 
 **A:** A CTE (Common Table Expression) is a named temporary result defined with `WITH` at the top of the query.
 
@@ -1034,7 +1034,7 @@ WHERE e.salary > d.avg_sal;
 
 ---
 
-### T10 — How does the ROWS frame clause affect SUM OVER?
+## Q30 — How does the ROWS frame clause affect SUM OVER?
 
 **A:** The frame clause controls which rows around the current row are included in the window calculation.
 
@@ -1061,7 +1061,7 @@ AVG(salary) OVER (ORDER BY id ROWS BETWEEN 2 PRECEDING AND CURRENT ROW)
 
 ---
 
-### Problem 1: Second highest salary (three methods)
+## Q31: Second highest salary (three methods)
 
 **Method A — OFFSET (simple, no ties awareness)**
 
@@ -1098,7 +1098,7 @@ WHERE salary < (SELECT MAX(salary) FROM employees);
 
 ---
 
-### Problem 2: Top-N per group (most asked pattern)
+## Q32: Top-N per group (most asked pattern)
 
 **Question:** Find the top 1 highest-paid employee in each department.
 
@@ -1128,7 +1128,7 @@ ORDER BY department;
 
 ---
 
-### Problem 3: Duplicate records — detect and delete
+## Q33: Duplicate records — detect and delete
 
 **Detect duplicates (same name + dept + salary):**
 
@@ -1173,7 +1173,7 @@ WHERE id IN (
 
 ---
 
-### Problem 4: Running salary comparison — employees who earn more than previous
+## Q34: Running salary comparison — employees who earn more than previous
 
 **Question:** Find employees whose salary is higher than the previous employee's salary (sorted by id).
 
@@ -1208,8 +1208,8 @@ ORDER BY id;
 > Try writing each query yourself before looking at the solution.
 
 ---
-
-**P1 — Find employees whose salary is above the overall average. Show their salary and the average.**
+ 
+## Q35 — Find employees whose salary is above the overall average. Show their salary and the average.**
 
 ```sql
 SELECT name, salary,
@@ -1220,7 +1220,7 @@ WHERE salary > (SELECT AVG(salary) FROM employees);
 
 ---
 
-**P2 — Highest salary per department (using window functions)**
+## Q36 — Highest salary per department (using window functions)**
 
 ```sql
 SELECT DISTINCT department,
@@ -1231,7 +1231,7 @@ ORDER BY department;
 
 ---
 
-**P3 — 3rd highest distinct salary**
+## 37 — 3rd highest distinct salary**
 
 ```sql
 SELECT name, salary
@@ -1246,7 +1246,7 @@ WHERE rnk = 3;
 
 ---
 
-**P4 — Running total per department ordered by salary**
+## Q38 — Running total per department ordered by salary**
 
 ```sql
 SELECT name, department, salary,
@@ -1261,7 +1261,7 @@ ORDER BY department, salary ASC;
 
 ---
 
-**P5 — Find all departments where average salary > 70,000**
+## Q39 — Find all departments where average salary > 70,000**
 
 ```sql
 SELECT department, ROUND(AVG(salary), 0) AS avg_salary
@@ -1273,7 +1273,7 @@ HAVING AVG(salary) > 70000;
 
 ---
 
-**P6 — For each employee show their salary percentile rank (0 to 1)**
+## Q40 — For each employee show their salary percentile rank (0 to 1)**
 
 ```sql
 SELECT name, salary,
