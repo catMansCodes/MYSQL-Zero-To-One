@@ -1070,6 +1070,22 @@ SELECT DISTINCT salary
 FROM employees
 ORDER BY salary DESC
 LIMIT 1 OFFSET 1;
+
+or
+
+select
+	e1.salary
+from
+	employees e1
+where
+	(
+	select
+		count(distinct e2.salary)
+	from
+		employees e2
+	where
+		e2.salary > e1.salary
+) = 1;
 ```
 
 **Method B — DENSE_RANK (handles ties correctly)**
@@ -1091,6 +1107,7 @@ SELECT MAX(salary) AS second_highest
 FROM employees
 WHERE salary < (SELECT MAX(salary) FROM employees);
 ```
+
 
 **Result:** David — 80,000
 
@@ -1114,6 +1131,23 @@ FROM (
 ) t
 WHERE rn = 1
 ORDER BY department;
+
+OR
+
+select
+	e1.salary
+from
+	employees e1
+where
+	(
+	select
+		count(distinct e2.salary)
+	from
+		employees e2
+	where
+		e2.salary > e1.salary
+) = N - 1;
+
 ```
 
 **Result:**
@@ -1199,15 +1233,6 @@ ORDER BY id;
 | David | 80,000 |      75,000 |
 | Lisa  | 90,000 |      80,000 |
 
----
-
----
-
-# 🚀 Practice Questions
-
-> Try writing each query yourself before looking at the solution.
-
----
  
 ## Q35 — Find employees whose salary is above the overall average. Show their salary and the average.**
 
@@ -1231,7 +1256,7 @@ ORDER BY department;
 
 ---
 
-## 37 — 3rd highest distinct salary**
+## Q37 — 3rd highest distinct salary**
 
 ```sql
 SELECT name, salary
@@ -1284,7 +1309,7 @@ ORDER BY salary ASC;
 
 ---
 
-**P7 — Divide employees into 3 salary buckets (low / mid / high)**
+## Q41 — Divide employees into 3 salary buckets (low / mid / high)**
 
 ```sql
 SELECT name, salary,
@@ -1300,7 +1325,6 @@ ORDER BY salary ASC;
 
 ---
 
----
 
 # 🧠 Key Takeaways
 
@@ -1318,10 +1342,3 @@ ORDER BY salary ASC;
 | **CTE (WITH)** | Naming and reusing intermediate results; recursive queries |
 
 ---
-
-> **Interview Tip:** The most common advanced SQL question sequence is:
-> 1. Find Nth highest salary → `DENSE_RANK`
-> 2. Top N per group → `ROW_NUMBER + PARTITION BY`
-> 3. Running total → `SUM OVER ORDER BY`
-> 4. Employees above dept average → Correlated subquery or CTE
-> 5. Duplicate detection → `ROW_NUMBER + PARTITION BY` on identity columns
