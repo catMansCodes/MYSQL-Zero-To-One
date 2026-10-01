@@ -1,14 +1,6 @@
 # 📘 Day 1 — SQL Fundamentals (Core Querying)
 
-## 🎯 Objective
-
-Learn the foundational SQL querying concepts required for backend development and technical interviews.
-
----
-
-# 📂 Dataset Setup
-
-## 🏗️ Create Table
+## Create Table
 
 ```sql
 CREATE TABLE employees (
@@ -20,7 +12,7 @@ CREATE TABLE employees (
 );
 ```
 
-## 📥 Insert Sample Data
+## Insert Sample Data
 
 ```sql
 INSERT INTO employees VALUES
@@ -34,7 +26,7 @@ INSERT INTO employees VALUES
 
 ---
 
-# 📚 Core Concepts
+## 📚 Core Concepts
 
 ## 1️⃣ SELECT
 
@@ -48,7 +40,6 @@ SELECT name, salary FROM employees;
 
 ⚠️ Avoid `SELECT *` in production.
 
----
 
 ## 2️⃣ WHERE
 
@@ -58,8 +49,6 @@ Filter rows
 SELECT * FROM employees
 WHERE department = 'Engineering';
 ```
-
----
 
 ## 3️⃣ Operators
 
@@ -71,7 +60,6 @@ WHERE department = 'Engineering';
 | <        | salary < 70000     |
 | >=       | salary >= 90000    |
 
----
 
 ## 4️⃣ AND / OR
 
@@ -85,8 +73,6 @@ WHERE city = 'Delhi'
 OR city = 'Mumbai';
 ```
 
----
-
 ## 5️⃣ ORDER BY
 
 ```sql
@@ -97,7 +83,6 @@ SELECT * FROM employees
 ORDER BY department, salary DESC;
 ```
 
----
 
 ## 6️⃣ LIMIT
 
@@ -109,7 +94,6 @@ SELECT * FROM employees
 LIMIT 10 OFFSET 20;
 ```
 
----
 
 ## 7️⃣ DISTINCT
 
@@ -118,8 +102,6 @@ SELECT DISTINCT department
 FROM employees;
 ```
 
----
-
 ## 8️⃣ IN
 
 ```sql
@@ -127,7 +109,6 @@ SELECT * FROM employees
 WHERE city IN ('Delhi','Mumbai');
 ```
 
----
 
 ## 9️⃣ BETWEEN
 
@@ -135,8 +116,6 @@ WHERE city IN ('Delhi','Mumbai');
 SELECT * FROM employees
 WHERE salary BETWEEN 70000 AND 90000;
 ```
-
----
 
 ## 🔟 LIKE
 
@@ -152,16 +131,7 @@ SELECT * FROM employees WHERE name LIKE '%h%';
 ```
 
 ---
-
-# ⚙️ SQL Execution Order (Important Interview Question)
-
-```text
-FROM → WHERE → SELECT → ORDER BY → LIMIT
-```
-
----
-
-# 💼 Interview Questions & Answers
+## 💼 Interview Questions & Answers
 
 ## 1. Get employees from Delhi
 
