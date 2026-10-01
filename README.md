@@ -106,31 +106,4 @@ This repository is designed for **Java Full-Stack Developers** who want to:
 
 ---
 
-## 📁 Repository Structure Like this
-```
-sql-learning/
-│
-├── day-01/
-│ ├── concepts.md
-│ ├── queries.sql
-│ └── notes.md
-│
-├── day-02/
-│ ├── concepts.md
-│ ├── queries.sql
-│ └── notes.md
-│
-├── interview-questions/
-│ ├── easy.md
-│ ├── medium.md
-│ └── hard.md
-│
-├── database-design/
-│ ├── ecommerce.md
-│ ├── banking.md
-│ └── ticket-booking.md
-│
-└── README.md
-
-```
 
